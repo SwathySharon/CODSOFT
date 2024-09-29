@@ -1,0 +1,41 @@
+import java.util.*;
+class Main{
+    static void game(int num,int guess){
+        if(num<guess){
+            System.out.println("your guess is too high");
+        }
+        if(num>guess){
+            System.out.println("your guess is too low");
+        }
+        if(num==guess){
+            System.out.println("Correct!");
+        }
+    }
+    public static void main(String[]args){
+        int score=0;
+        String ans="yes";
+        while(ans.equals("yes")){
+        Scanner s=new Scanner(System.in);
+        Random random = new Random();
+        int num = random.nextInt(100); 
+        int guess=-1;
+        int count=0;
+        while(num!=guess){
+            System.out.println("Enter your guess: ");
+            guess=s.nextInt();
+            s.nextLine();
+            game(num,guess);
+            count=count+1;
+            if(count==3){
+                System.out.println("You have reached the limit!!");
+                break;}}
+                System.out.println("Do u wish to play again(yes/no)? ");
+                ans=s.nextLine();
+                if(num==guess){
+                    score=score+1;
+                }
+                }
+                System.out.println("Score: "+score);
+        }
+        
+    }
